@@ -1,0 +1,205 @@
+# Cosmic Catch – Cursor Rules (Automatic Continuous Mode)
+
+## Purpose
+
+This repository is designed for an autonomous Cursor Agent to build the game **Cosmic Catch** with minimal user micromanagement.
+
+The Agent must:
+
+- Read the docs.
+- Start from the current task in `docs/implementation_state.md`.
+- Execute multiple tasks **sequentially** per run.
+- Update the state docs.
+- Stop only when it hits the configured limits or a blocking issue.
+
+The Agent must NOT ask for human confirmation when the rules in this file are clear.
+
+---
+
+## Tech Stack (MUST)
+
+- Swift 5+
+- iOS 17+ target
+- iPhone-only, portrait orientation
+- SwiftUI for app shell, menus, overlays, HUD
+- SpriteKit for all core gameplay (GameScene, objects, particles)
+- MVVM with `ObservableObject` view models mediating between SwiftUI and SpriteKit
+
+Forbidden:
+
+- WebKit
+- Ads / tracking / analytics SDKs
+- Network calls (no remote services; local-only data)
+
+---
+
+## Documents to Read BEFORE Any Work
+
+Before doing anything in a run, the Agent MUST:
+
+1. Read `docs/project_config.md`
+2. Read `docs/implementation_plan.md`
+3. Read `docs/implementation_state.md`
+
+Treat:
+
+- `project_config.md` as the **design spec / source of truth**.
+- `implementation_plan.md` as the **task list**.
+- `implementation_state.md` as the **progress tracker**.
+
+Never claim these files are missing; if they are, create them based on the intent of this repository.
+
+---
+
+## Automatic Continuous Mode (Default Behavior)
+
+### Core Rule
+
+- The Agent MUST operate in **continuous multi-task mode by default**.
+- Do **NOT** ask for confirmation to execute multiple tasks.
+- Do **NOT** stop after a single task unless:
+  - You hit a blocking issue, OR
+  - You have reached the task limit for this run.
+
+### Task Selection
+
+1. Read `docs/implementation_state.md` and locate **Current Step**:
+   - The `ID` (e.g., `T1.1`) and `Title`.
+2. In `docs/implementation_plan.md`, find that task.
+3. Consider all subsequent tasks in numeric order (T1.1 → T1.2 → T1.3 → …).
+
+### How Many Tasks Per Run?
+
+- In each Agent run, you are expected to:
+  - Complete **up to 5 tasks** (lowest-level items: T1.1, T1.2, …) sequentially, starting from the Current Step.
+- You MUST:
+  - At least attempt the Current Step, even if you cannot finish all 5.
+- You SHOULD:
+  - Proceed to the next tasks as long as:
+    - The project still builds (or reasonably should build given the environment), AND
+    - You have not exceeded the 5-task limit, AND
+    - There are no unresolved blockers.
+
+### When to Stop in a Run
+
+Stop the run when ANY of the following happens:
+
+1. You have fully completed 5 tasks for this run, OR
+2. You reach the end of `implementation_plan.md`, OR
+3. You encounter a serious blocking issue that requires human input.
+   - In this case, clearly document the issue in `implementation_state.md` under **Open Issues**.
+
+Do NOT stop merely because “the rules say to do only one task” – that previous rule has been superseded by this file.
+
+---
+
+## Updating implementation_state.md
+
+After each task you complete in a run:
+
+1. **Append an entry to “Completed Steps”**:
+   - Include:
+     - `ID` (e.g., `T1.2`)
+     - Title
+     - Short summary of what was done
+     - Any notable design decisions / tradeoffs
+
+2. **Update “Current Step”**:
+   - Set `ID` and `Title` to the next task in numeric order.
+   - If there are no more tasks, state clearly that the plan is exhausted.
+
+3. **Open Issues**:
+   - If the task reveals problems or uncertainties, add an issue:
+     - `Issue ID` (I2, I3, …)
+     - Description
+     - Related Tasks
+     - Status (`open` if unresolved, `resolved` if you fixed it, `deferred` if postponed).
+
+---
+
+## Code & Architecture Rules
+
+- Use MVVM:
+  - SwiftUI `View`s are presentational only.
+  - Game state and logic live in models and view models.
+  - SpriteKit `GameScene` handles rendering and object behavior but consults view models for rules/state where appropriate.
+
+- Keep logic ORGANIZED:
+  - `GameCore` – core rules, models, spawning logic, scoring.
+  - `GameScene` – SpriteKit scene setup, nodes, particles.
+  - `ViewModels` – `ObservableObject` types exposing game/session state to SwiftUI.
+  - `Views` – SwiftUI screens (menu, HUD, overlays).
+
+- No networking or analytics code.
+
+---
+
+## Graphics, Animation & Sprites
+
+- Prefer procedural / vector-like graphics:
+  - SKShapeNode, gradients, glow shaders, particle emitters.
+- For each falling object type (Stellar Shard, Plasma Orb, etc.):
+  - Implement four animation states:
+    1. Spawn / Entry
+    2. Idle / Falling
+    3. Tap / Hit
+    4. Miss / Despawn
+- When generating sprite frames:
+  - Use multiple frames per state.
+  - Vary prompts/parameters so frames are not identical.
+  - Target smooth motion at 60 FPS.
+
+---
+
+## Performance & Layout
+
+- Goal: **60 FPS** on modern iPhones.
+- Manage node counts and particle systems:
+  - Cap concurrent objects.
+  - Reuse (pool) frequently created nodes and emitters when practical.
+- Layout:
+  - Use safe areas and adaptive sizing in SwiftUI for HUD/menus.
+  - Use a logical coordinate system for SpriteKit and scale appropriately to device sizes.
+
+If a change harms performance, either:
+- Optimize it immediately, OR
+- Document it as an Open Issue.
+
+---
+
+## Testing & Behavior
+
+After you complete your batch of tasks in a run:
+
+- Ensure the project compiles (as far as the environment allows).
+- Sanity-check affected flows:
+  - App boots.
+  - Menu / HUD / GameScene appear when appropriate.
+  - Newly implemented objects/animations don’t crash the game.
+
+If the environment cannot run Xcode/iOS (e.g., remote CI or Linux-like environment):
+
+- Explain this limitation briefly in your summary.
+- Still keep the code logically correct and compilable for a standard iOS/Xcode setup.
+
+---
+
+## Modifying the Plan or Spec
+
+- Do NOT delete or drastically rewrite `project_config.md` or `implementation_plan.md`.
+- You MAY:
+  - Add new tasks (T… IDs) if genuinely needed.
+  - Adjust descriptions slightly for clarity.
+- If you change the plan:
+  - Document why in `implementation_state.md` (Completed Step notes and/or an Open Issue).
+
+---
+
+## Summary for the Agent
+
+- You are in **continuous multi-task mode by default**.
+- Do NOT ask for confirmation about the number of tasks.
+- Start from the Current Step in `implementation_state.md`.
+- Execute tasks sequentially (up to 5 per run).
+- Update `implementation_state.md` after each task.
+- Keep the project aligned with the spec and running at 60 FPS.
