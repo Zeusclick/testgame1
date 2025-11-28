@@ -34,8 +34,8 @@ final class AppFlowViewModel: ObservableObject {
         }
     }
 
-    func startGame(using gameViewModel: GameViewModel) {
-        gameViewModel.startGame()
+    func startGame(using gameViewModel: GameViewModel, challenge: ChallengeMode, sector: SectorDefinition) {
+        gameViewModel.start(challenge: challenge, sector: sector)
         transitionToPlaying()
     }
 
@@ -52,12 +52,12 @@ final class AppFlowViewModel: ObservableObject {
     }
 
     func restartGame(using gameViewModel: GameViewModel) {
-        gameViewModel.startGame()
+        gameViewModel.start(challenge: gameViewModel.state.challenge, sector: gameViewModel.state.sector)
         transitionToPlaying()
     }
 
     func exitToTitle(using gameViewModel: GameViewModel) {
-        gameViewModel.resetGame()
+        gameViewModel.reset()
         withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
             screen = .title
         }

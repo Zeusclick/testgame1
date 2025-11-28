@@ -19,6 +19,14 @@
 		13C4AD192586B1A6000A0A01 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4AC402586B1A6000A0A01 /* SplashView.swift */; };
 		13C4AD1A2586B1A6000A0A01 /* TitleScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4AC502586B1A6000A0A01 /* TitleScreenView.swift */; };
 		13C4AD1B2586B1A6000A0A01 /* PauseOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4AC602586B1A6000A0A01 /* PauseOverlayView.swift */; };
+		13C4AD1C2586B1A6000A0A01 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4AD8C2586B1A6000A0A01 /* AppEnvironment.swift */; };
+		13C4AD1D2586B1A6000A0A01 /* GeometryUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4AD8D2586B1A6000A0A01 /* GeometryUtilities.swift */; };
+		13C4AD1E2586B1A6000A0A01 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4AD8E2586B1A6000A0A01 /* DesignSystem.swift */; };
+		13C4AD1F2586B1A6000A0A01 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4AD8F2586B1A6000A0A01 /* HUDView.swift */; };
+		13C4AD202586B1A6000A0A01 /* MenuStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4AD902586B1A6000A0A01 /* MenuStackView.swift */; };
+		13C4AD212586B1A6000A0A01 /* OverlayViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4AD912586B1A6000A0A01 /* OverlayViews.swift */; };
+		13C4AD222586B1A6000A0A01 /* GameStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4AD942586B1A6000A0A02 /* GameStateTests.swift */; };
+		13C4AD232586B1A6000A0A01 /* GameSessionCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4AD952586B1A6000A0A02 /* GameSessionCoordinatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +44,26 @@
 		13C4AC402586B1A6000A0A01 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		13C4AC502586B1A6000A0A01 /* TitleScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenView.swift; sourceTree = "<group>"; };
 		13C4AC602586B1A6000A0A01 /* PauseOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseOverlayView.swift; sourceTree = "<group>"; };
+		13C4AD8C2586B1A6000A0A01 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		13C4AD8D2586B1A6000A0A01 /* GeometryUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryUtilities.swift; sourceTree = "<group>"; };
+		13C4AD8E2586B1A6000A0A01 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		13C4AD8F2586B1A6000A0A01 /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
+		13C4AD902586B1A6000A0A01 /* MenuStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStackView.swift; sourceTree = "<group>"; };
+		13C4AD912586B1A6000A0A01 /* OverlayViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViews.swift; sourceTree = "<group>"; };
+		13C4AD982586B1A6000A0A02 /* CosmicCatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CosmicCatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13C4AD942586B1A6000A0A02 /* GameStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateTests.swift; sourceTree = "<group>"; };
+		13C4AD952586B1A6000A0A02 /* GameSessionCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSessionCoordinatorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		13C4A9F32586B1A6000A0A01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13C4AD9B2586B1A6000A0A02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -53,14 +77,25 @@
 			isa = PBXGroup;
 			children = (
 				13C4AB002586B1A6000A0A01 /* CosmicCatch */,
+				13C4AD962586B1A6000A0A02 /* CosmicCatchTests */,
 				13C4AA302586B1A6000A0A01 /* Products */
 			);
+			sourceTree = "<group>";
+		};
+		13C4AD962586B1A6000A0A02 /* CosmicCatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				13C4AD942586B1A6000A0A02 /* GameStateTests.swift */,
+				13C4AD952586B1A6000A0A02 /* GameSessionCoordinatorTests.swift */
+			);
+			path = CosmicCatchTests;
 			sourceTree = "<group>";
 		};
 		13C4AA302586B1A6000A0A01 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13C4AA202586B1A6000A0A01 /* CosmicCatch.app */
+				13C4AA202586B1A6000A0A01 /* CosmicCatch.app */,
+				13C4AD982586B1A6000A0A02 /* CosmicCatchTests.xctest */
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +105,11 @@
 			children = (
 				13C4AB102586B1A6000A0A01 /* CosmicCatchApp.swift */,
 				13C4AB202586B1A6000A0A01 /* ContentView.swift */,
+				13C4AD922586B1A6000A0A01 /* App */,
 				13C4ABD02586B1A6000A0A01 /* Views */,
 				13C4ABE02586B1A6000A0A01 /* ViewModels */,
 				13C4ABF02586B1A6000A0A01 /* GameCore */,
+				13C4AD932586B1A6000A0A01 /* Utilities */,
 				13C4AC002586B1A6000A0A01 /* Scenes */,
 				13C4AB702586B1A6000A0A01 /* Assets.xcassets */,
 				13C4AC202586B1A6000A0A01 /* Preview Content */,
@@ -87,9 +124,61 @@
 				13C4AB302586B1A6000A0A01 /* GameView.swift */,
 				13C4AC402586B1A6000A0A01 /* SplashView.swift */,
 				13C4AC502586B1A6000A0A01 /* TitleScreenView.swift */,
-				13C4AC602586B1A6000A0A01 /* PauseOverlayView.swift */
+				13C4AD942586B1A6000A0A01 /* Components */,
+				13C4AD952586B1A6000A0A01 /* HUD */,
+				13C4AD962586B1A6000A0A01 /* Menu */,
+				13C4AD972586B1A6000A0A01 /* Overlays */
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		13C4AD922586B1A6000A0A01 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				13C4AD8C2586B1A6000A0A01 /* AppEnvironment.swift */
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		13C4AD932586B1A6000A0A01 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				13C4AD8D2586B1A6000A0A01 /* GeometryUtilities.swift */
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		13C4AD942586B1A6000A0A01 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				13C4AD8E2586B1A6000A0A01 /* DesignSystem.swift */
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		13C4AD952586B1A6000A0A01 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				13C4AD8F2586B1A6000A0A01 /* HUDView.swift */
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		13C4AD962586B1A6000A0A01 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				13C4AD902586B1A6000A0A01 /* MenuStackView.swift */
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		13C4AD972586B1A6000A0A01 /* Overlays */ = {
+			isa = PBXGroup;
+			children = (
+				13C4AD912586B1A6000A0A01 /* OverlayViews.swift */,
+				13C4AC602586B1A6000A0A01 /* PauseOverlayView.swift */
+			);
+			path = Overlays;
 			sourceTree = "<group>";
 		};
 		13C4ABE02586B1A6000A0A01 /* ViewModels */ = {
@@ -145,6 +234,23 @@
 			productReference = 13C4AA202586B1A6000A0A01 /* CosmicCatch.app */;
 			productType = "com.apple.product-type.application";
 		};
+		13C4AD992586B1A6000A0A02 /* CosmicCatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13C4ADA02586B1A6000A0A02 /* Build configuration list for PBXNativeTarget "CosmicCatchTests" */;
+			buildPhases = (
+				13C4AD9A2586B1A6000A0A02 /* Sources */,
+				13C4AD9B2586B1A6000A0A02 /* Frameworks */
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13C4AD9C2586B1A6000A0A02 /* PBXTargetDependency */
+			);
+			name = CosmicCatchTests;
+			productName = CosmicCatchTests;
+			productReference = 13C4AD982586B1A6000A0A02 /* CosmicCatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -176,7 +282,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13C4A9F02586B1A6000A0A01 /* CosmicCatch */
+				13C4A9F02586B1A6000A0A01 /* CosmicCatch */,
+				13C4AD992586B1A6000A0A02 /* CosmicCatchTests */
 			);
 		};
 /* End PBXProject section */
@@ -199,11 +306,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				13C4AD102586B1A6000A0A01 /* CosmicCatchApp.swift in Sources */,
+				13C4AD1C2586B1A6000A0A01 /* AppEnvironment.swift in Sources */,
 				13C4AD182586B1A6000A0A01 /* AppFlowViewModel.swift in Sources */,
 				13C4AD132586B1A6000A0A01 /* GameViewModel.swift in Sources */,
 				13C4AD122586B1A6000A0A01 /* GameView.swift in Sources */,
+				13C4AD1D2586B1A6000A0A01 /* GeometryUtilities.swift in Sources */,
+				13C4AD1E2586B1A6000A0A01 /* DesignSystem.swift in Sources */,
+				13C4AD1F2586B1A6000A0A01 /* HUDView.swift in Sources */,
 				13C4AD192586B1A6000A0A01 /* SplashView.swift in Sources */,
 				13C4AD1A2586B1A6000A0A01 /* TitleScreenView.swift in Sources */,
+				13C4AD202586B1A6000A0A01 /* MenuStackView.swift in Sources */,
+				13C4AD212586B1A6000A0A01 /* OverlayViews.swift in Sources */,
 				13C4AD1B2586B1A6000A0A01 /* PauseOverlayView.swift in Sources */,
 				13C4AD142586B1A6000A0A01 /* GameState.swift in Sources */,
 				13C4AD112586B1A6000A0A01 /* ContentView.swift in Sources */,
@@ -211,7 +324,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		13C4AD9A2586B1A6000A0A02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13C4AD222586B1A6000A0A01 /* GameStateTests.swift in Sources */,
+				13C4AD232586B1A6000A0A01 /* GameSessionCoordinatorTests.swift in Sources */
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		13C4AD9C2586B1A6000A0A02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13C4A9F02586B1A6000A0A01 /* CosmicCatch */;
+			targetProxy = 13C4AD9D2586B1A6000A0A02 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+		13C4AD9D2586B1A6000A0A02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13C4A9E52586B1A6000A0A01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13C4A9F02586B1A6000A0A01;
+			remoteInfo = CosmicCatch;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin XCBuildConfiguration section */
 		13C4AA012586B1A6000A0A01 /* Debug */ = {
@@ -378,6 +518,36 @@
 			};
 			name = Release;
 		};
+		13C4ADA12586B1A6000A0A02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmiccatch.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		13C4ADA22586B1A6000A0A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmiccatch.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -395,6 +565,15 @@
 			buildConfigurations = (
 				13C4AA112586B1A6000A0A01 /* Debug */,
 				13C4AA122586B1A6000A0A01 /* Release */
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13C4ADA02586B1A6000A0A02 /* Build configuration list for PBXNativeTarget "CosmicCatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13C4ADA12586B1A6000A0A02 /* Debug */,
+				13C4ADA22586B1A6000A0A02 /* Release */
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

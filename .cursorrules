@@ -71,21 +71,22 @@ Never claim these files are missing; if they are, create them based on the inten
 ### How Many Tasks Per Run?
 
 - In each Agent run, you are expected to:
-  - Complete **up to 5 tasks** (lowest-level items: T1.1, T1.2, …) sequentially, starting from the Current Step.
+  - Continue executing tasks sequentially **until the implementation plan is fully exhausted**, or until you encounter a blocking issue that truly requires human input.
+  - Treat the per-run capacity as effectively **100 tasks (or all remaining tasks, whichever is smaller)** so you never stop early due to an artificial cap.
 - You MUST:
-  - At least attempt the Current Step, even if you cannot finish all 5.
+  - At least attempt the Current Step, even if you cannot finish everything.
 - You SHOULD:
   - Proceed to the next tasks as long as:
     - The project still builds (or reasonably should build given the environment), AND
-    - You have not exceeded the 5-task limit, AND
+    - You have not exceeded the effective 100-task allowance (which should cover the entire plan), AND
     - There are no unresolved blockers.
 
 ### When to Stop in a Run
 
 Stop the run when ANY of the following happens:
 
-1. You have fully completed 5 tasks for this run, OR
-2. You reach the end of `implementation_plan.md`, OR
+1. You have completed every remaining task in `implementation_plan.md`, OR
+2. You reach the effective 100-task limit for the run (only applicable if more than 100 new tasks somehow exist), OR
 3. You encounter a serious blocking issue that requires human input.
    - In this case, clearly document the issue in `implementation_state.md` under **Open Issues**.
 
