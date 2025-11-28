@@ -1,0 +1,111 @@
+# Cosmic Catch – Cursor Rules
+
+## General
+
+- This project builds a high‑quality iPhone game “Cosmic Catch”.
+- Stack is fixed:
+  - Swift 5+, iOS 17+
+  - iPhone only, portrait orientation
+  - SwiftUI for app shell, menus, overlays, HUD
+  - SpriteKit for all core gameplay (GameScene, objects, particles)
+- Do NOT add WebKit, ads, tracking, or third‑party analytics.
+
+## Planning & Documents
+
+- BEFORE making any code or asset changes:
+  - Read `docs/project_config.md`.
+  - Read `docs/implementation_plan.md`.
+  - Read `docs/implementation_state.md`.
+- Treat `project_config.md` as the source of truth for design and behavior.
+- Treat `implementation_plan.md` as the official task list.
+
+## Task Execution
+
+- Work on **ONE task** from `implementation_plan.md` per Agent run.
+- Use the **lowest‑level bullet** (e.g., `T6.4`) as a single task unit.
+- When starting work:
+  - Set that task as **Current Step** in `implementation_state.md`.
+- When you finish the task:
+  - Update **Completed Steps** in `implementation_state.md` with:
+    - Task ID
+    - Title
+    - Short summary of what was done and any important decisions.
+  - If you discovered issues or follow‑ups, add them to **Open Issues**.
+  - STOP after finishing and documenting the task.
+
+## Code & Architecture
+
+- Use MVVM:
+  - SwiftUI `View`s are dumb/visual only.
+  - `ObservableObject` view models expose state and intent.
+  - SpriteKit `GameScene` handles visual/gameplay representation and communicates with view models via clear APIs.
+- Keep responsibilities clear:
+  - No networking.
+  - No business logic inside views beyond simple formatting.
+  - Game rules live in GameCore / models / view models, not hard‑coded deep in SpriteKit nodes when possible.
+
+## Graphics, Animation & Sprites
+
+- Prefer procedural/vector‑style graphics:
+  - SKShapeNode, gradients, shaders, particle effects, and SpriteKit tools.
+  - Use texture atlases and generated textures when raster art is needed.
+- For falling objects:
+  - Each object type has four animation states: spawn, idle/falling, tap/hit, miss/despawn.
+  - Use smooth, high‑quality animations (no jittery, low‑frame looks unless intentionally stylized).
+- When a task involves sprite or animation art:
+  - Generate multiple frames per state (spawn, idle, hit, miss).
+  - Use **distinct prompts or parameter variations** per frame or per small frame group so that frames are not visually identical.
+  - Aim for fluid motion when frames are played at 60 FPS.
+
+## Performance & Quality
+
+- Always aim for **60 FPS**:
+  - Avoid unnecessary allocations in the render/update loops.
+  - Cap number of active nodes and particle systems.
+  - Use pooling for frequently created/destroyed nodes and emitters.
+- Make layouts adaptive:
+  - Use safe areas and relative positioning in SwiftUI.
+  - Use a logical coordinate space for SpriteKit and scale appropriately.
+- If a change noticeably impacts performance:
+  - Either optimize it or document it as an **Open Issue** in `implementation_state.md`.
+
+## Testing & Behavior
+
+- After each task:
+  - Ensure the project builds and runs.
+  - Sanity‑check affected screens and the core game loop if relevant.
+- Do not silently change the behavior defined in `project_config.md`.
+  - If you must deviate, explain it in `implementation_state.md` under the relevant Completed Step and/or Open Issues.
+
+## File & Code Style
+
+- Keep files small and focused; factor out reusable code.
+- Prefer clear naming:
+  - Use “CosmicCatch_*” or similarly consistent prefixes for engine‑level utilities when names might collide.
+- Avoid generating large blocks of commented‑out code; remove unused/abandoned code instead.
+
+## Modifying the Plans
+
+- Do NOT rewrite `project_config.md` or `implementation_plan.md` structure unless:
+  - There is a clear mistake or conflict, AND
+  - You document the change in `implementation_state.md` (Completed Step notes + Open Issues).
+- If you need additional tasks:
+  - Add them to `implementation_plan.md` in the appropriate phase.
+  - Use a new ID (e.g., `T6.26`) and briefly explain the reason.
+
+## Privacy & Networking
+
+- Do NOT add:
+  - Network calls
+  - Analytics/telemetry
+  - Ads or tracking SDKs.
+- All persistence should be local (UserDefaults / local files only), as described in `project_config.md`.
+
+## Summary
+
+- Read the docs first.
+- Pick exactly one task.
+- Implement it cleanly and efficiently.
+- Update `implementation_state.md`.
+- Keep the game visually consistent, highly polished, and running at 60 FPS on iPhone.
+- Stop after completing one task.
