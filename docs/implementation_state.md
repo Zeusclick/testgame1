@@ -10,10 +10,11 @@ Use this file to track progress. After completing tasks from `implementation_pla
 
 ## Current Step
 
-- **ID:** T1.1
-- **Title:** Create `CosmicCatch` iOS app project (Swift 5+, iOS 17+, iPhone-only, portrait).
+- **ID:** T1.3
+- **Title:** Define the GameSession coordinator/view-model graph plus dependency container for services.
 - **Notes:**  
-  - Start with a clean Xcode project matching the architecture and constraints from `project_config.md`.
+  - Solidify how the SwiftUI shell, view models, and SpriteKit scene communicate.  
+  - Begin outlining protocols for spawners/scoring that later tasks will implement.
 
 ---
 
@@ -21,7 +22,10 @@ Use this file to track progress. After completing tasks from `implementation_pla
 
 _List most recent first._
 
-_(No steps completed yet.)_
+- **T1.2 – Build the SwiftUI entry stack (splash, title, routing, pause overlay).**  
+  Added `AppFlowViewModel`, splash/title views, and a pause overlay, rewired `ContentView` to switch between screens, and connected the flow model to `GameViewModel` so starting, pausing, resuming, and quitting all drive the SpriteKit scene correctly.
+- **T1.1 – Create the `CosmicCatch` Xcode project (SwiftUI + SpriteKit target).**  
+  Created the full Xcode workspace, pbxproj, scheme, Info.plist, and asset catalogs; added initial SwiftUI `App`, HUD, MVVM scaffolding, and a placeholder `GameScene` wired through a `GameViewModel`. Also expanded `docs/implementation_plan.md` so downstream tasks are unblocked.
 
 ---
 
