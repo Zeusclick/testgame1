@@ -10,10 +10,10 @@ Use this file to track progress. After completing **each task** from `implementa
 
 ## Current Step
 
-- **ID:** T1.1
-- **Title:** Create `CosmicCatch` iOS app project (Swift 5+, iOS 17+, iPhone‑only, portrait).
+- **ID:** T1.2
+- **Title:** Set up folder/group structure.
 - **Notes:**  
-  - Initial step: set up a clean Xcode project according to the architecture described in `project_config.md`.
+  - Mirror the planned architecture (`App`, `GameCore`, `GameScene`, etc.) within the Xcode project/groups to prepare for future tasks.
 
 ---
 
@@ -21,7 +21,9 @@ Use this file to track progress. After completing **each task** from `implementa
 
 _List most recent first._
 
-_(No steps completed yet.)_
+- **ID:** T1.1  
+  **Title:** Create `CosmicCatch` iOS app project (Swift 5+, iOS 17+, iPhone-only, portrait).  
+  **Summary:** Initialized a SwiftUI-based iPhone app target with deployment set to iOS 17, portrait orientation, and iPhone-only support. Added starter `CosmicCatchApp` and `ContentView` files, asset catalogs (including placeholder App Icon and Accent Color), Info.plist with portrait-only configuration, and a fully wired `CosmicCatch.xcodeproj` referencing the new resources.
 
 ---
 
